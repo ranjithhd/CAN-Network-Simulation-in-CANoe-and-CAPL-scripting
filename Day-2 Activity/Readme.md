@@ -30,3 +30,52 @@ into event procedures. The CAPL Browser’s main window is organized as shown in
 shows and supports the creation and modification of event procedures.
 
 ![CAPL Browser organization](https://user-images.githubusercontent.com/115522470/200554972-e50d658a-d8f6-4246-984a-5fbb51f49a2c.png)
+
+The upper left window, the Events window, lists both the different types of CAPL events and the names of the
+procedures associated with each event category in a tree view.
+The upper right window, the Global Variables window, is used to declare all necessary global variables for the CAPL
+program.
+The lower right window, called the Event Procedure window, displays the source code entered for the selected
+procedure highlighted in the Events window.
+The bottom window, the Compiler window, shows compiler activities and results.
+The windows have another layout that may be more suitable to some users. Global variables can be represented
+either in an individual window or in the window displaying the procedure text. If the Event Procedure window is used
+to display the global variables, then the global variables will not be shown if an event procedure is currently displayed.
+This feature is in the Editor Options dialog, reached with the Options → Editor command. All CAPL programs
+must be closed before it can be activated. 
+
+#### The Events Window
+
+The Events window lists all event procedure categories in a tree-type structure, which may be expanded by clicking on
+it to view all currently defined event procedures.
+
+The two types of events listed in the Events window are the following:
+
+• System-specific events
+
+• User-defined events
+
+System-specific event categories include the following:
+
+• System
+
+• CAN Controller
+
+• ErrorFrame
+
+System-specific events only allow access to a set of pre-defined CAPL event procedures. Duplicates of these events
+are not allowed.
+
+User-defined event categories include the following:
+
+• CAN Message
+
+• Timer
+
+• Keyboard
+
+• Environment
+
+• Function
+
+The developer can create an unlimited number of user-defined events. 
