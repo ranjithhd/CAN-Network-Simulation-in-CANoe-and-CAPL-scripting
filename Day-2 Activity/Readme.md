@@ -79,3 +79,8 @@ User-defined event categories include the following:
 • Function
 
 The developer can create an unlimited number of user-defined events. 
+
+## Day-2 Activity-2
+
+## The 7 CAPL Events 
+
