@@ -91,6 +91,164 @@ When we click the Measurement start - lightning icon to start our simulation in 
 Example:
 
 on start()
+
+{
+
+write("This will be printed on start-up!");
+
+}
+
+### on pre-start()
+
+This function will execute before start() event. This is useful for initting variables, setting delays etc. setStartdelay is a function unique to pre-start - that can be used to test timing parameters.
+
+on pre-start()
+		
 		{
-				write("This will be printed on start-up!");
+		
+		write("this will be executed before start()!");
+		
 		}
+		
+#### on stop()
+
+This event takes place on clicking the stop button in CANoe/CANalyzer window.
+
+Example:
+
+on stop()
+
+{
+
+write("You clicked the red stop button!");
+
+}
+
+### on key 'key-name'()
+
+When key specified in 'key-name' is pressed, this event is triggered.
+
+on key 'a'
+
+{
+
+write("When a is pressed, this happens");
+
+}
+
+#### on envvar "Envvar name"()
+
+CANoe has objects called environment variables, which interact with the user. These environment variables must be created and defined in Database files associated with the simulation (".dbc" files). When the associated Env-var changes, this event is called. Example :
+
+on envvar env_abc
+
+{
+
+write("Value of env_abc is %d",getvalue(this));
+
+}
+
+getvalue and putvalue are special functions, to get/put value of an environment value.
+"this" pointer refers to current env_var here.
+
+#### on message messagename()
+
+This happens when the CAN message specified in messagename is received. messagename can be declared in variables{} portion and used here or else hex address can be given.
+
+Example:
+
+on message 0x100
+
+{
+
+int data=0;
+
+data=0x100.byte(0);
+
+write("Data in 0x100 first byte, %d",data);
+
+}
+
+variables
+
+{
+
+message 0x100 messagename;
+
+}
+
+		on message messagename()
+
+{
+
+write("Data in first byte, %d",messagename.byte(0));
+
+}<
+
+#### on timer()
+
+Timers are special variables that trigger with a settimer() call and can be stopped with a canceltimer() call.
+
+They are useful to run parallel tasks and sequentials tasks also and play a big role in automation.
+
+Timers must be declared in variables{} section. There are two types of timers - mstimer and timer variables. Mstimer on setting, take values in Milliseconds and on timer event executes on completion of that value.
+
+For Timer variable, on timer event takes place after the seconds specified in settimer call is lapsed.
+
+Example:
+
+variables
+
+{
+
+timer t1;
+
+mstimer t2;
+
+int t1delay=1;
+
+int t2delay=1000;
+
+}
+
+
+on start()
+
+{
+
+settimer(t1,t1delay);
+
+settimer(t2,t2delay);
+
+}
+
+on timer t1
+
+{
+
+write("One second has elapsed.");
+
+settimer(t1,t1delay);
+
+}
+
+on timer t2
+
+{
+
+write("1000 Milliseconds have elapsed.");
+
+settimer(t2,t2delay);
+
+}
+
+on key 'a'
+
+{
+
+canceltimer(t1);
+
+canceltimer(t2);
+
+}
+			
