@@ -84,3 +84,13 @@ The developer can create an unlimited number of user-defined events.
 
 ## The 7 CAPL Events 
 
+CAPL - Communication Access Protocol Language is used by Vector tools like CANoe and CANalyzer. It is an event based language, that can be used for automating/semi-automating in a CAN environment. Its mostly like C with few changes. Global variables can be declared in variables{} section, with functions and events following.
+
+#### on start()
+When we click the Measurement start - lightning icon to start our simulation in CANoe(or CANalyzer), the part of code here gets executed. 
+Example:
+
+on start()
+		{
+				write("This will be printed on start-up!");
+		}
