@@ -254,9 +254,12 @@ canceltimer(t2);
 			
 
 ## Day-2 Activity-3
-#### Import Database into the config file of THMS
+
+### Import Database into the config file of THMS
+
 
 ![Import database into the config file for THMS](https://user-images.githubusercontent.com/115522470/201149122-3549cd03-ed53-4977-9333-363752fd7553.png)
+
 
 ![ECU for THMS](https://user-images.githubusercontent.com/115522470/201149482-026d9ab0-ff0c-49a8-b820-0fa0bd776303.png)
 
